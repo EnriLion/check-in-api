@@ -1,0 +1,6 @@
+)What did you do yesterday? 
+-Jorge helped me to fix the branch of git and I made the different models and I've made a foreign key between the databases and making the different endpoints in the other model
+2)What will you do today? 
+-I will keep working in the ticket-4 and ticket-5.
+3)Are there any blockers preventing you form progressing? 
+-There aren't any blockers.
