@@ -30,10 +30,13 @@ public class CheckInModel {
     @Column(name = "status")
     private Boolean status = false;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    @JsonBackReference
-    private EmployeeModel employee;
+    @Column(name = "employee_id")
+    private Long employee;
+
+//    @ManyToOne
+//    @JoinColumn(name = "employee_id")
+//    @JsonBackReference
+//    private EmployeeModel employee;
 
 //    public String getPerson(){
 //       return  person;
