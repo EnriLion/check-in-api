@@ -24,7 +24,7 @@ public class CheckInController {
     @Autowired
     private CheckInService checkInService;
 
-    @PostMapping("/check-in")
+    @PostMapping("")
     public ResponseEntity<CheckInModel> loginCheck(){
         CheckInModel checkInModel = checkInService.createdCheckIn();
        return ResponseEntity.ok(checkInModel);

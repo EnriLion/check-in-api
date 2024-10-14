@@ -33,6 +33,9 @@ public class CheckInModel {
     @Column(name = "employee_id")
     private Long employee;
 
+    @Column(name = "person")
+    private Long person;
+
 //    @ManyToOne
 //    @JoinColumn(name = "employee_id")
 //    @JsonBackReference

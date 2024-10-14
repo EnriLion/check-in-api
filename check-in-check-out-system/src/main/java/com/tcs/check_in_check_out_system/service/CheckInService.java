@@ -24,6 +24,7 @@ public class CheckInService {
         checkInModel.setCheckInTime(LocalDateTime.now());
         checkInModel.setCheckOutTime(LocalDateTime.now());
         checkInModel.setStatus(false);
+        checkInModel.setPerson(0L);
         checkInRepository.save(checkInModel);
         return checkInModel;
     }
