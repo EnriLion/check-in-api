@@ -1,8 +1,7 @@
 name: check_database
-
 services:
   db:
-    image: mysql:8.0
+    image: mysql:8.0 
     container_name: check_db
     environment:
       MYSQL_DATABASE: check_db
