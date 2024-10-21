@@ -14,9 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+
+@CrossOrigin
 @Controller
 @RequestMapping("/api/v1/check")
 public class CheckInController {
@@ -24,11 +27,6 @@ public class CheckInController {
     @Autowired
     private CheckInService checkInService;
 
-    @PostMapping("")
-    public ResponseEntity<CheckInModel> loginCheck(){
-        CheckInModel checkInModel = checkInService.createdCheckIn();
-       return ResponseEntity.ok(checkInModel);
-    }
 
     @DeleteMapping("/{checkInId}/delete")
     public ResponseEntity<Void> deleteRecord(@PathVariable Long checkInId){
@@ -48,9 +46,9 @@ public class CheckInController {
     }
 
     @PutMapping("/{checkInId}/status")
-    public ResponseEntity<CheckInModel> updateStatus(@PathVariable Long checkInId, @RequestParam boolean status) {
+    public ResponseEntity<CheckInModel> updateStatus(@PathVariable Long checkInId) {
         try {
-            CheckInModel checkInModel = checkInService.updateStatus(checkInId, status);
+            CheckInModel checkInModel = checkInService.updateStatus(checkInId);
             return ResponseEntity.ok(checkInModel);
         } catch (NoSuchElementException e) {
             return ResponseEntity.notFound().build();
@@ -58,4 +56,11 @@ public class CheckInController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @GetMapping("/{checkInId}/record")
+    public ResponseEntity<List<CheckInModel>> getRecordId(@PathVariable Long checkInId){
+        List<CheckInModel> records = checkInService.getRecordId(checkInId);
+        return ResponseEntity.ok(records);
+    }
+
 }
