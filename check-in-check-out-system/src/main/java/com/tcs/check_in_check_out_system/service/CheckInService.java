@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -18,16 +19,6 @@ public class CheckInService {
     @Autowired
     private CheckInRepository checkInRepository;
 
-
-    public CheckInModel createdCheckIn(){
-        CheckInModel checkInModel = new CheckInModel();
-        checkInModel.setCheckInTime(LocalDateTime.now());
-        checkInModel.setCheckOutTime(LocalDateTime.now());
-        checkInModel.setStatus(false);
-        checkInModel.setPerson(0L);
-        checkInRepository.save(checkInModel);
-        return checkInModel;
-    }
 
     public void deleteRecord(Long checkInId){
         checkInRepository.deleteById(checkInId);
@@ -40,10 +31,19 @@ public class CheckInService {
        return check;
     }
 
-    public CheckInModel updateStatus(Long checkInId, boolean status){
+    public CheckInModel updateStatus(Long checkInId){
        CheckInModel checkInModel = checkInRepository.findById(checkInId).orElseThrow(NoSuchElementException:: new);
-       checkInModel.setStatus(status);
+       checkInModel.setCheckOutTime(LocalDateTime.now());
+       checkInModel.setStatus(true);
        return  checkInRepository.save(checkInModel);
     }
+
+    public List<CheckInModel> getRecordId(Long checkInId){
+        CheckInModel checkInModel = checkInRepository.findById(checkInId).orElseThrow(NoSuchElementException::new);
+        List<CheckInModel> records = new LinkedList<>();
+        records.add(checkInModel);
+        return records;
+    }
+
 
 }

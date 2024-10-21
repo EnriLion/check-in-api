@@ -18,9 +18,6 @@ public class CheckInModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long checkInId;
 
-  /*  @Column(name = "person")
-    private String person;*/
-
     @Column(name = "check_in_time")
     private LocalDateTime checkInTime;
 
@@ -36,49 +33,4 @@ public class CheckInModel {
     @Column(name = "person")
     private Long person;
 
-//    @ManyToOne
-//    @JoinColumn(name = "employee_id")
-//    @JsonBackReference
-//    private EmployeeModel employee;
-
-//    public String getPerson(){
-//       return  person;
-//    }
-//
-//    public void setPerson(String person){
-//        this.person = person;
-//    }
-//
-//    public LocalDateTime getCheckInTime(){
-//        return  checkInTime;
-//    }
-//
-//    public void setCheckInTime(LocalDateTime checkInTime){
-//        this.checkInTime = checkInTime;
-//    }
-//
-//    public LocalDateTime getCheckOutTime(){
-//      return  checkOutTime;
-//    }
-//
-//    public void setCheckOutTime(LocalDateTime checkOutTime){
-//        this.checkOutTime = checkOutTime;
-//    }
-//
-//    public Boolean getStatus(){
-//        return status;
-//    }
-//
-//    public void setStatus(Boolean status){
-//        this.status = status;
-//    }
-//
-//    public EmployeeModel getEmployee(){
-//        return  employee;
-//    }
-//
-//    public void setEmployee(EmployeeModel employee){
-//        this.employee = employee;
-//    }
-//
 }
