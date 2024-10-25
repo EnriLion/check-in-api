@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 
-@CrossOrigin
 @Controller
 @RequestMapping("/api/v1/check")
 public class CheckInController {
