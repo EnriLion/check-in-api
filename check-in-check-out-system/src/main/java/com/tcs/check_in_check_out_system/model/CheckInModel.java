@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,11 @@ public class CheckInModel {
     @Column(name = "employee_id")
     private Long employee;
 
-    @Column(name = "person")
-    private Long person;
+    @OneToMany(mappedBy = "check", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true) //Cascade to manage check-ins/ fetch =
+    @JsonBackReference("check-location")
+    private List<LocationModel> locationModels = new ArrayList<>();
+
+//    @Column(name = "person")
+//    private Long person;
 
 }
